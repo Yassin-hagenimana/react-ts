@@ -17,12 +17,21 @@ const App:React.FC=()=> {
     }
   };
   console.log(todos)
+  
   return (
     <div className="App">
 <span className="heading">
   <h1>Taskify</h1>
   <TextField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
 </span>
+
+{
+  todos.map((t)=>(
+    <li>
+      {t.todo}
+    </li>
+  ))
+}
 
     </div>
   );
