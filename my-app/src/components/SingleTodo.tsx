@@ -16,6 +16,11 @@ export default function SingleTodo({todo,todos,setTodos}:Props) {
         todo.id === id ? {...todo,isDone:!todo.isDone}:todo))
 
     }
+
+
+    const handleDelete=(id:number)=>{
+        setTodos(todos.filter((todo)=>todo.id !==id))
+    }
  return (
     <form className='todos__single'>
         {
@@ -31,7 +36,7 @@ export default function SingleTodo({todo,todos,setTodos}:Props) {
             <span className="icons">
                 <AiFillEdit/>
                 </span>
-            <span className="icons">
+            <span className="icons" onClick={()=>handleDelete(todo.id)}>
                 <AiFillDelete/>
                 </span>
             <span className="icons" onClick={()=>handleDone(todo.id)}>
