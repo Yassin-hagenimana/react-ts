@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import './App.css';
 import { Todo } from './components/Model';
 import TextField from './components/TextField';
+import TodoList from './components/TodoList';
 
 
 const App:React.FC=()=> {
@@ -17,7 +18,7 @@ const App:React.FC=()=> {
     }
   };
   console.log(todos)
-  
+
   return (
     <div className="App">
 <span className="heading">
@@ -25,13 +26,7 @@ const App:React.FC=()=> {
   <TextField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
 </span>
 
-{
-  todos.map((t)=>(
-    <li>
-      {t.todo}
-    </li>
-  ))
-}
+<TodoList todos={todos} setTodos={setTodos}/>
 
     </div>
   );
